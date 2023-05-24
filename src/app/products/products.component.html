@@ -1,0 +1,16 @@
+<div
+*ngFor="let p of productList">
+
+  <div class="item">
+    <div class="left">
+      <img src="{{'https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/'+p.photosJSON['thumbnail']}}">
+      {{p.name}} |
+      {{p.productType.name}} |
+      {{p.productModel.name}} |
+      {{p.price}} BGN
+    </div>
+    
+
+    <button (click)="this.changeStatus(p)">{{p.isActive ? "Active" : "Inactive"}}</button>
+  </div>
+</div>
