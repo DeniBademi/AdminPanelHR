@@ -1,4 +1,5 @@
-import { Token } from "@angular/compiler/src/ml_parser/lexer";
+import { Token } from "./Token";
+ 
 
 export class User {
     constructor(username : string, role: string){
