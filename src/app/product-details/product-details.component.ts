@@ -6,7 +6,6 @@ import { Product } from '../_models/Product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalsService } from '../_services/globals.service';
 import { ProductService } from '../_services/product.service';
-import { GalleryItem, ImageItem } from 'ng-gallery';
 
 @Component({
   selector: 'app-product-details',
@@ -17,7 +16,6 @@ export class ProductDetailsComponent implements OnInit {
 
   product: Product | undefined;
   productID: any;
-  photos: GalleryItem[] = [];
   
   constructor(private route: ActivatedRoute, private GlobalsService: GlobalsService, private products: ProductService, private router: Router) { }
 
@@ -40,19 +38,6 @@ export class ProductDetailsComponent implements OnInit {
           //console.log(this.product)
         
   
-          
-          this.photos.push(new ImageItem({
-            src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail,
-            thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail
-          }));
-          //https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-40-34PM-000_CustomizedView9730449655_juzc56.jpg
-          for(let i=0;i<this.product.photosJSON.gallery.length;i++){
-            
-            this.photos.push(new ImageItem({
-                src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i],
-                thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i]
-            }));
-          }
   
         //   this.translate.get('demo.greeting', {name: 'John'}).subscribe((res: string) => {
         //     console.log(res);
